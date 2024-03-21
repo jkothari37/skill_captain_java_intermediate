@@ -1,0 +1,55 @@
+public class BankAccount{
+    private int accountNumber;
+    private String accountHolderName;
+    private double accountBalance;
+
+    public BankAccount(int accountNumber, String accountHolderName, double initialBalance){
+        this. accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        if(initialBalance<0){
+            throw new IllegalArgumentException("Initial Balance cannot be negative");
+        }
+        this.accountBalance = initialBalance;
+    }
+
+    public void depositMoney(double amount){
+        if(amount < 0){
+            throw new IllegalArgumentException("Deposit amount cannot be negative");
+        }
+        accountBalance += amount;
+        System.out.println("Money has been Deposit Successfully New Available Balance is : " + accountBalance);
+    }
+
+    public void withdrawMoney(double amount){
+        if (amount < 0 ) {
+            throw new IllegalArgumentException("Withdraw amount cannot be Negative");
+        }
+        if(amount > accountBalance){
+            System.out.println("Insufficient Funds new Available Balance is : " + accountBalance);
+        }
+        else{
+            accountBalance -= amount;
+            System.out.println("Withdraw Successfully new Available Balance is : " + accountBalance);
+        }
+
+        }
+
+    public void getAccountInformation(){
+        System.out.println("Account Number : " + accountNumber);
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Account Balance: " + accountBalance);
+    }
+
+    public static void main(String[] args) {
+        BankAccount myAccount = new BankAccount(4567100,"John",100.00);
+        System.out.println("Account Details ");
+        myAccount.getAccountInformation();
+        myAccount.depositMoney(60.00);
+        myAccount.withdrawMoney(30.00);
+        // insufficient funds
+        myAccount.withdrawMoney(150.00);
+
+        System.out.println("Account Information after withdrawal");
+        myAccount.getAccountInformation();
+    }
+}
