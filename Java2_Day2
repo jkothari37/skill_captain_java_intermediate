@@ -1,0 +1,21 @@
+public class Person {
+    private String name;
+    private int age;
+
+  public Person(String name, int age){
+      this.name = name;
+      this.age = age;
+      System.out.println("Constructor called");
+  }
+
+  @Override
+  public String toString(){
+      return name + "," + age;
+  }
+    public static void main(String[] args) {
+        Person object1 = new Person("Alice", 25);
+        System.out.println(object1.toString());
+        Person object2 = new Person("Bob", 30);
+        System.out.println(object2.toString());
+    }
+}
