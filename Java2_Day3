@@ -1,0 +1,60 @@
+package Java2;
+class Vehicle {
+    private String brand;
+    private String model;
+    private int year;
+    private double rentalPrice;
+
+    public Vehicle(String brand, String model, int year, double rentalPrice) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.rentalPrice = rentalPrice;
+    }
+
+    public void getVehicleInformation() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("RentalPrice:" + rentalPrice);
+    }
+
+}
+
+class Car extends Vehicle {
+    private int numberOfSeats;
+
+    public Car(String brand, String model, int year, double rentalPrice, int numberOfSeats){
+        super(brand, model, year, rentalPrice);
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+}
+
+class Motorcycle extends Vehicle {
+    private double engineCapacity;
+
+    public Motorcycle(String brand, String model, int year, double rentalPrice, double engineCapacity) {
+        super(brand, model, year, rentalPrice);
+        this.engineCapacity = engineCapacity;
+    }
+
+    public double getEngineCapacity() {
+        return engineCapacity;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Range Rover", "Sports", 2023, 100.00, 5);
+        car.getVehicleInformation();
+        System.out.println("Number of Seats: " + car.getNumberOfSeats());
+        System.out.println("");
+        Motorcycle motorcycle = new Motorcycle("Royal Enfield", "Continental GT ", 2021, 90.00, 349.34);
+        motorcycle.getVehicleInformation();
+        System.out.println("Engine Capacity:" + motorcycle.getEngineCapacity());
+    }
+}
